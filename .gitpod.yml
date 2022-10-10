@@ -1,0 +1,15 @@
+image:
+  file: .gitpod.Dockerfile
+
+tasks:
+  - name: Terminal
+    command: |
+      ls
+
+ports:
+  - port: 8080
+    visibility: public
+  - port: 4000
+    visibility: public
+  - port: 2379-36663
+    onOpen: ignore
