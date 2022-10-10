@@ -1,3 +1,3 @@
 FROM gitpod/workspace-go
 
-RUN apt -y update && apt -y upgrade
+RUN sudo apt-get -y update && sudo apt-get -y upgrade
