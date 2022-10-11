@@ -2,6 +2,10 @@ image:
   file: .gitpod.Dockerfile
 
 tasks:
+  - name: Redis
+    command: |
+      redis-server
+
   - name: Terminal
     command: |
       ls
@@ -11,5 +15,7 @@ ports:
     visibility: public
   - port: 4000
     visibility: public
+  - port: 6379
+    visibility: private
   - port: 2379-36663
     onOpen: ignore
