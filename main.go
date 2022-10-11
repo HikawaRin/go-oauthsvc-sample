@@ -47,6 +47,7 @@ func Login(c *gin.Context) {
 		return
 	}
 	c.JSON(http.StatusOK, token)
+	log.Print("Leave Func Login")
 }
 
 func isUser(u *User) bool {
@@ -64,7 +65,7 @@ func CreateToken(uid uint64) (string, error) {
 	atClaims["authorized"] = true
 	atClaims["user_id"] = uid
 	atClaims["exp"] = time.Now().Add(time.Minute * 15).Unix()
-	at := jwt.NewWithClaims(jwt.SigningMethodES256, atClaims)
+	at := jwt.NewWithClaims(jwt.SigningMethodHS256, atClaims)
 	token, err := at.SignedString([]byte(os.Getenv("ACCESS_SECRET")))
 	return token, err
 }
